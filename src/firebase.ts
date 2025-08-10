@@ -3,6 +3,8 @@ import {
   collection,
   getDocs,
   getFirestore,
+  doc,
+  getDoc,
 } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -26,4 +28,10 @@ export const getAllLinks = async (): Promise<String[]> => {
     links.push(doc.data());
   });
   return links;
+}
+
+export const getURL = async (short: string): Promise<string> => {
+  const docRef = doc(db, "links", short)
+  const docSnap = await getDoc(docRef)
+  return docSnap.data()!["url"]
 }
