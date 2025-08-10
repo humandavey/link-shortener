@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3cdb8586-6c66-4cb8-988f-f572916ee2d4/deploy-status)](https://app.netlify.com/projects/imaginative-pudding-c1f421/deploys)
+
 # link-shortener
 
 An easy way to create short links.
