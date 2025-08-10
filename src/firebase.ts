@@ -1,5 +1,7 @@
 import { initializeApp } from "firebase/app";
 import {
+  collection,
+  getDocs,
   getFirestore,
 } from "firebase/firestore";
 
@@ -15,3 +17,13 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+
+export const getAllLinks = async (): Promise<String[]> => {
+  const ref = collection(db, "links");
+  const snapshot = await getDocs(ref);
+  const links: String[] = [];
+  snapshot.forEach((doc: any) => {
+    links.push(doc.data());
+  });
+  return links;
+}
